@@ -15,9 +15,23 @@ services:
     depends_on:
       - postgres
     ports:
-      - 8000:80
+      - 8001:80
     volumes:
       - pgadmin:/var/lib/pgadmin
+
+  wagtail:
+    build:
+      context: ./wagtail
+    env_file: ./.env
+    stdin_open: true
+    tty: true
+    depends_on:
+      - postgres
+    ports:
+      - 8000:8000
+    volumes:
+      - ~/wks/data/wagtail:/app
+
 
 volumes:
   db:

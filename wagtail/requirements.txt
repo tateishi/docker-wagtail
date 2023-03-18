@@ -1,0 +1,2 @@
+wagtail
+psycopg2
